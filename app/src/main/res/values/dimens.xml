@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="none">0dp</dimen>
+    <dimen name="single">1dp</dimen>
+    <dimen name="tiny">2dp</dimen>
+    <dimen name="small">4dp</dimen>
+    <dimen name="regular">8dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="very_large">24sp</dimen>
+    <dimen name="extra_large">32sp</dimen>
+    <dimen name="very_extra_large">64sp</dimen>
+
+    <dimen name="title">18sp</dimen>
+    <dimen name="label">14sp</dimen>
+
+
+    <dimen name="thumbnail_item_list">150dp</dimen>
+</resources>
