@@ -13,6 +13,7 @@
     <dimen name="title">18sp</dimen>
     <dimen name="label">14sp</dimen>
 
+    <dimen name="thumbnail_item_list">200dp</dimen>
 
-    <dimen name="thumbnail_item_list">150dp</dimen>
+    <dimen name="toolbar_heigh">56dp</dimen>
 </resources>

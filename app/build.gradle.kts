@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    implementation(libs.androidx.material.icons.extended)
+
 
 
     testImplementation(libs.junit)

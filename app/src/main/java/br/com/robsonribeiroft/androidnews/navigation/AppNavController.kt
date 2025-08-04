@@ -9,8 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import br.com.robsonribeiroft.androidnews.model.News
 import br.com.robsonribeiroft.androidnews.screen.FeedScreen
-import br.com.robsonribeiroft.androidnews.screen.WebViewScreen
-
+import br.com.robsonribeiroft.androidnews.screen.NewsDetailScreen
 
 @Composable
 fun AppNavController(
@@ -28,7 +27,9 @@ fun AppNavController(
         }
         composable<WebViewRoute>(typeMap = customArgs<News>().map) { navBackStackEntry ->
             val route = navBackStackEntry.toRoute<WebViewRoute>()
-            WebViewScreen(route.news)
+            NewsDetailScreen(route.news) {
+                navController.navigateUp()
+            }
         }
     }
 }

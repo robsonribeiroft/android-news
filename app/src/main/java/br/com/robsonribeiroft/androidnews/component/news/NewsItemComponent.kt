@@ -20,9 +20,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import br.com.robsonribeiroft.androidnews.R
+import br.com.robsonribeiroft.androidnews.extensions.colorTheme
 import br.com.robsonribeiroft.androidnews.extensions.empty
 import br.com.robsonribeiroft.androidnews.extensions.withColor
 import br.com.robsonribeiroft.androidnews.model.News
+import br.com.robsonribeiroft.androidnews.ui.theme.SurfaceDark
+import br.com.robsonribeiroft.androidnews.ui.theme.SurfaceLight
 import coil3.compose.AsyncImage
 
 @Composable
@@ -35,7 +38,7 @@ fun NewsItemComponent(
         modifier = modifier
             .clickable { onClick(news) }
             .fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surface,
+        color = colorTheme(SurfaceLight, SurfaceDark),
         shadowElevation = dimensionResource(R.dimen.single)
     ) {
         Column(
@@ -67,8 +70,8 @@ fun NewsItemComponent(
                     .testTag(NewsItemComponentTags.THUMBNAIL)
                     .height(dimensionResource(R.dimen.thumbnail_item_list))
                     .padding(vertical = dimensionResource(R.dimen.regular))
-                    .clip(shape = RoundedCornerShape(dimensionResource(R.dimen.small)))
-                    .shadow(elevation = dimensionResource(R.dimen.tiny)),
+                    .shadow(elevation = dimensionResource(R.dimen.tiny))
+                    .clip(shape = RoundedCornerShape(dimensionResource(R.dimen.small))),
                 model = news.thumbnailUrl,
                 contentScale = ContentScale.FillBounds,
                 contentDescription = String.empty

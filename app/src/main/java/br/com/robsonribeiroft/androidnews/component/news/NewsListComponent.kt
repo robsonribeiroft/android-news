@@ -11,8 +11,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import br.com.robsonribeiroft.androidnews.R
+import br.com.robsonribeiroft.androidnews.extensions.colorTheme
 import br.com.robsonribeiroft.androidnews.model.News
 import br.com.robsonribeiroft.androidnews.ui.theme.BackgroundDark
 import br.com.robsonribeiroft.androidnews.ui.theme.BackgroundLight
@@ -31,7 +33,7 @@ fun NewsListComponent(
     Box(
         modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background)
+            .background(color = colorTheme(BackgroundLight, BackgroundDark))
     ) {
         LazyColumn(
             modifier = modifier
