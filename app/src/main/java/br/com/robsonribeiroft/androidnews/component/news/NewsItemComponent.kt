@@ -32,17 +32,17 @@ fun NewsItemComponent(
             .clickable {
                 onClick(news)
             }
-            .fillMaxWidth()
-            .padding(dimensionResource(R.dimen.regular)),
+            .fillMaxWidth(),
         color = MaterialTheme.colorScheme.surface,
         shadowElevation = dimensionResource(R.dimen.single)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentSize(),
+                .wrapContentSize()
+                .padding(dimensionResource(R.dimen.large)),
             verticalArrangement = Arrangement.spacedBy(
-                space = dimensionResource(R.dimen.tiny),
+                space = dimensionResource(R.dimen.regular),
                 alignment = Alignment.CenterVertically
             ),
             horizontalAlignment = Alignment.Start
@@ -53,11 +53,11 @@ fun NewsItemComponent(
             )
             Text(
                 text = news.title,
-                style = MaterialTheme.typography.labelMedium.withColor { onSurface }
+                style = MaterialTheme.typography.titleLarge.withColor { onSurface }
             )
             Text(
                 text = news.summary,
-                style = MaterialTheme.typography.labelMedium.withColor { onSurfaceVariant }
+                style = MaterialTheme.typography.bodyMedium.withColor { onSurfaceVariant }
             )
 
             AsyncImage(
@@ -70,7 +70,7 @@ fun NewsItemComponent(
             )
 
             Text(
-                text = news.label,
+                text = news.metadata,
                 style = MaterialTheme.typography.labelMedium.withColor { onSurfaceVariant }
             )
         }
