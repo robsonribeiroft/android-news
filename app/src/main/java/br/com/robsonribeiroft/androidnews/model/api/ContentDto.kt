@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ContentDto(
     val title: String? = null,
+    val recommendationSummary: String? = null,
     val summary: String? = null,
     val url: String? = null,
     @SerialName("chapeu")

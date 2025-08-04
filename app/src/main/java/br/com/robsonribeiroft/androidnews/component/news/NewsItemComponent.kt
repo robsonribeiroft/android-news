@@ -52,18 +52,22 @@ fun NewsItemComponent(
             ),
             horizontalAlignment = Alignment.Start
         ) {
-            Text(
-                text = news.label,
-                style = MaterialTheme.typography.labelMedium.withColor { onSurfaceVariant }
-            )
+            if (news.label.isNotBlank()) {
+                Text(
+                    text = news.label,
+                    style = MaterialTheme.typography.labelMedium.withColor { onSurfaceVariant }
+                )
+            }
             Text(
                 text = news.title,
                 style = MaterialTheme.typography.titleMedium.withColor { onSurface }
             )
-            Text(
-                text = news.summary,
-                style = MaterialTheme.typography.bodyMedium.withColor { onSurfaceVariant }
-            )
+            if (news.summary.isNotBlank()) {
+                Text(
+                    text = news.summary,
+                    style = MaterialTheme.typography.bodyMedium.withColor { onSurfaceVariant }
+                )
+            }
 
             AsyncImage(
                 modifier = Modifier
