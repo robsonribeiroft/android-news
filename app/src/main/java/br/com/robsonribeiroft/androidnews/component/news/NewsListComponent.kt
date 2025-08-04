@@ -14,12 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import br.com.robsonribeiroft.androidnews.R
 import br.com.robsonribeiroft.androidnews.model.News
+import br.com.robsonribeiroft.androidnews.ui.theme.BackgroundDark
+import br.com.robsonribeiroft.androidnews.ui.theme.BackgroundLight
+import br.com.robsonribeiroft.androidnews.ui.theme.Primary
+import coil3.util.Logger
 
 @Composable
 fun NewsListComponent(
     modifier: Modifier,
     feedNews: List<News>,
-    onClick: (News)-> Unit
+    onItemClick: (News)-> Unit
 ) {
 
     val listState = rememberLazyListState()
@@ -34,12 +38,12 @@ fun NewsListComponent(
                 .fillMaxSize(),
             state = listState,
             verticalArrangement = Arrangement.spacedBy(
-                space = dimensionResource(R.dimen.regular),
+                space = dimensionResource(R.dimen.large),
                 alignment = Alignment.CenterVertically
             )
         ) {
             items(feedNews) { news ->
-                NewsItemComponent(news, onClick = onClick)
+                NewsItemComponent(news, onClick = onItemClick)
             }
         }
     }

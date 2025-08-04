@@ -1,6 +1,5 @@
 package br.com.robsonribeiroft.androidnews.ui.theme
 
-import android.hardware.lights.Light
 import androidx.compose.ui.graphics.Color
 
 val Primary = Color(0xFFC4170C)

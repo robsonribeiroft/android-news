@@ -7,17 +7,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import br.com.robsonribeiroft.androidnews.AppViewModel
 import br.com.robsonribeiroft.androidnews.component.news.NewsListComponent
+import br.com.robsonribeiroft.androidnews.model.News
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FeedScreen(viewModel: AppViewModel = koinViewModel()) {
+fun FeedScreen(
+    modifier: Modifier = Modifier,
+    viewModel: AppViewModel = koinViewModel(),
+    navigateToNews: (News)-> Unit
+) {
 
     val feed by viewModel.feed.collectAsState()
 
     NewsListComponent(
-        modifier = Modifier.fillMaxSize(),
-        feedNews = feed
-    ) {
-        println("")
-    }
+        modifier = modifier.fillMaxSize(),
+        feedNews = feed,
+        onItemClick = navigateToNews
+    )
 }

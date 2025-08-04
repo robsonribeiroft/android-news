@@ -1,5 +1,8 @@
 package br.com.robsonribeiroft.androidnews.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class News(
     val title: String,
     val summary: String,
