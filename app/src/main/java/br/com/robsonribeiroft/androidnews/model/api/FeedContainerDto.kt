@@ -6,7 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FeedContainerDto(
     @SerialName("falkor")
-    val falkorData: FalkorDataDto? = null
+    val falkorData: FalkorDataDto? = null,
+    @SerialName("oferta")
+    val offer: String? = null
 )
 
 @Serializable

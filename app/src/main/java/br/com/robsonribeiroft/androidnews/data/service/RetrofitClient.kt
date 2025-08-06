@@ -1,5 +1,6 @@
 package br.com.robsonribeiroft.androidnews.data.service
 
+import androidx.annotation.VisibleForTesting
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -9,7 +10,8 @@ import retrofit2.Retrofit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://native-leon.globo.com/"
+    @VisibleForTesting
+    const val BASE_URL = "https://native-leon.globo.com/"
 
     private val okHttpClient: OkHttpClient by lazy {
         val logging = HttpLoggingInterceptor().apply {

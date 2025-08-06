@@ -3,17 +3,27 @@ package br.com.robsonribeiroft.androidnews.navigation
 import android.net.Uri
 import androidx.navigation.NavType
 import androidx.savedstate.SavedState
-import br.com.robsonribeiroft.androidnews.model.News
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
 @Serializable
-object FeedRoute
+data class FeedRoute(val product: String)
 
 @Serializable
-data class WebViewRoute(val news: News)
+data class WebViewRoute(val url: String)
+
+@Serializable
+object MainRoute
+
+@Serializable
+object MenuRoute
+
+sealed class TabScreen( val title: String, val route: @Serializable Any) {
+    data object Home : TabScreen("Destaques", FeedRoute(product = "g1"))
+    data object Agro : TabScreen("Agro", FeedRoute(product = "https://g1.globo.com/economia/agronegocios"))
+    data object Menu : TabScreen("Menu", MenuRoute)
+}
 
 
 inline fun <reified T> customArgs(): NavType<T> = object : NavType<T>(isNullableAllowed = false) {

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidNews</string>
+    <string name="error_network_unavailable">Erro ao carregar. Verifique sua conexão.</string>
+    <string name="error_load_more_items">Erro ao carregar mais itens.</string>
+    <string name="error_loading_page">Não foi possível carregar a página. Verifique sua conexão com a internet</string>
+    <string name="tab_home">Destaque</string>
+    <string name="tab_economy">Agro</string>
+    <string name="tab_menu">Menu</string>
 </resources>

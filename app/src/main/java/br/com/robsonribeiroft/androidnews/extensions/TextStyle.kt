@@ -16,7 +16,7 @@ fun TextStyle.withColor(@ColorRes colorRes: Int): TextStyle {
 }
 
 @Composable
-fun TextStyle.withColor(block: ColorScheme.()-> Color): TextStyle {
+fun TextStyle.withColor(block: @Composable ColorScheme.()-> Color): TextStyle {
     val selectColor = MaterialTheme.colorScheme.block()
     return this.copy(color = selectColor)
 }

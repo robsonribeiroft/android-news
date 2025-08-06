@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -33,7 +34,8 @@ import br.com.robsonribeiroft.androidnews.ui.theme.SurfaceDark
 @Composable
 fun TopBarComponent(
     modifier: Modifier = Modifier,
-    onBackButtonClicked: (()->Unit)? = null
+    showBackButton: Boolean = false,
+    onBackButtonClicked: ()->Unit
 ) {
     Column(
         modifier = modifier
@@ -53,12 +55,13 @@ fun TopBarComponent(
                 alignment = Alignment.Start
             )
         ) {
-            if (onBackButtonClicked != null) {
+            if (showBackButton) {
                 IconButton(
+                    modifier= Modifier.testTag(TopBarComponentTestTag.BUTTON_TAG),
                     onClick = onBackButtonClicked
                 ) {
                     Icon(
-                        imageVector = Icons.Default.ArrowBackIosNew,
+                        imageVector = Icons.AutoMirrored.Default.ArrowBack,
                         contentDescription = String.empty,
                         tint = colorResource(R.color.white)
                     )
@@ -67,6 +70,7 @@ fun TopBarComponent(
 
             Image(
                 modifier = Modifier
+                    .testTag(TopBarComponentTestTag.IMAGE_TAG)
                     .padding(dimensionResource(R.dimen.regular))
                     .size(dimensionResource(R.dimen.extra_large)),
                 painter = painterResource(R.drawable.g1_logo),
@@ -87,4 +91,9 @@ fun getTopBarHeight(
                 dimensionResource(R.dimen.toolbar_heigh) +
                 boxExtraHeigh
     }
+}
+
+object TopBarComponentTestTag {
+    const val BUTTON_TAG = "TopBarComponent_BUTTON_TAG"
+    const val IMAGE_TAG = "TopBarComponent_IMAGE_TAG"
 }

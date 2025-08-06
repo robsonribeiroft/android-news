@@ -1,31 +1,33 @@
-package br.com.robsonribeiroft.androidnews.screen
+package br.com.robsonribeiroft.androidnews.screen.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.paging.compose.collectAsLazyPagingItems
 import br.com.robsonribeiroft.androidnews.AppViewModel
 import br.com.robsonribeiroft.androidnews.component.news.NewsListComponent
-import br.com.robsonribeiroft.androidnews.component.toolbar.TopBarComponent
 import br.com.robsonribeiroft.androidnews.model.News
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FeedScreen(
+fun FeedTabContent(
     modifier: Modifier = Modifier,
-    viewModel: AppViewModel = koinViewModel(),
+    viewModel: AppViewModel,
+    product: String,
     navigateToNews: (News)-> Unit
 ) {
 
-    val feed by viewModel.feed.collectAsState()
+    val lazyFeeNews = viewModel.getFeedNewsByProduct(product).collectAsLazyPagingItems()
+
+    LaunchedEffect(Unit) {
+        viewModel.setProduct(product)
+    }
 
     Column {
-        TopBarComponent()
         NewsListComponent(
             modifier = modifier.fillMaxSize(),
-            feedNews = feed,
+            lazyFeedNews = lazyFeeNews,
             onItemClick = navigateToNews
         )
     }
